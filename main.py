@@ -93,7 +93,7 @@ class HTTPHandler(socketserver.BaseRequestHandler):
             self.request.sendall(b"501 Not Implemented")
 
 if __name__ == "__main__":
-    HOST, PORT = "0.0.0.0", 8080
+    HOST, PORT = "0.0.0.0", 80
     logging.basicConfig(format="%(message)s", encoding='utf-8', level=logging.DEBUG, handlers=[logging.FileHandler("logs.log"), logging.StreamHandler(sys.stdout)])
     with socketserver.TCPServer((HOST, PORT), HTTPHandler) as server:
         logging.info(f"MiniHTTP started on port { PORT }")
